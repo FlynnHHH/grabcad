@@ -19,8 +19,8 @@ headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/
 cookies = {"_grabcad_session": "78be09fa3bca8617ae543fc679b0a9a8"}
 
 archive_url_list = []
+session = requests.Session()
 for api_url in api_url_list:
-    session = requests.Session()
     # retry = Retry(connect=3, backoff_factor=0.5)
     # adapter = HTTPAdapter(max_retries=retry)
     # session.mount('http://grabcad.com', adapter)
