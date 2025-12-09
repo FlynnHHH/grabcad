@@ -3,3 +3,4 @@ selenium-wire
 pandas
 requests
 wget
+tqdm

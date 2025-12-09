@@ -2,6 +2,7 @@ import urllib3
 import requests
 import pandas as pd
 import time
+from tqdm import tqdm
 
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
@@ -15,12 +16,12 @@ api_url_list = []
 for i in model_url_list:
     api_url_list.append(i.replace('https://grabcad.com/library/', 'https://grabcad.com/community/api/v1/models/'))
 
-headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"}
-cookies = {"_grabcad_session": "78be09fa3bca8617ae543fc679b0a9a8"}
+headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"}
+cookies = {"_grabcad_session": "3b0ce32cbcb307fe56208274a85cf92c"}
 
 archive_url_list = []
 session = requests.Session()
-for api_url in api_url_list:
+for api_url in tqdm(api_url_list, desc="Fetching archive URLs"):
     # retry = Retry(connect=3, backoff_factor=0.5)
     # adapter = HTTPAdapter(max_retries=retry)
     # session.mount('http://grabcad.com', adapter)
